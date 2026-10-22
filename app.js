@@ -103,8 +103,19 @@ document.addEventListener("click", (e) => {
 
   if (a === "open-settings") openSettings();
   if (a === "close-settings") closeSettings();
-  if (a === "set-theme") { state.theme = el.dataset.v; save(); applyTheme(); renderSheet(); }
-  if (a === "set-mode") { state.mode = el.dataset.v; save(); applyTheme(); renderSheet(); }
+    if (a === "set-theme") {
+    state.theme = el.dataset.v; save(); applyTheme();
+    // обновляем и шторку, и главную
+    if ($("#settingsSheet").classList.contains("open")) renderSheet();
+    route();
+    if (navigator.vibrate) navigator.vibrate(10);
+  }
+  if (a === "set-mode") {
+    state.mode = el.dataset.v; save(); applyTheme();
+    if ($("#settingsSheet").classList.contains("open")) renderSheet();
+    route();
+    if (navigator.vibrate) navigator.vibrate(10);
+  }
 
   if (a === "toggle-talent") {
     const id = el.dataset.id;
@@ -206,6 +217,34 @@ function renderStart(main) {
   const hasProgress = state.initialInterests || state.dreamLife[0].text;
   const talentsCount = state.talents.length;
   const completed = countCompleted();
+  function renderQuickTheme() {
+  const themes = [
+    ["indigo","Indigo"],["emerald","Emerald"],["rose","Rose"],["amber","Amber"],
+    ["cyan","Cyan"],["violet","Violet"],["sunset","Sunset"]
+  ];
+  const modes = [["light","День","sun"],["dark","Ночь","moon"],["auto","Авто","monitor"]];
+  return `
+    <div class="card">
+      <h3 style="margin-top:0; display:flex; align-items:center; gap:8px">
+        🎨 Тема оформления
+      </h3>
+      <p class="muted" style="font-size:13px;margin:0 0 10px">Выбери, как будет выглядеть приложение. Можно менять в любой момент.</p>
+      <div class="quick-themes">
+        ${themes.map(([k, l]) => `
+          <div class="quick-theme swatch-${k} ${state.theme===k?'selected':''}"
+               data-action="set-theme" data-v="${k}" title="${l}"></div>
+        `).join("")}
+      </div>
+      <div class="quick-mode">
+        ${modes.map(([k, l, ico]) => `
+          <button class="${state.mode===k?'active':''}" data-action="set-mode" data-v="${k}">
+            ${icon(ico)}<span>${l}</span>
+          </button>
+        `).join("")}
+      </div>
+    </div>
+  `;
+}
 
   main.innerHTML = `
     <h2>Привет 👋</h2>
@@ -232,6 +271,7 @@ function renderStart(main) {
       </ol>
     </div>
 
+        ${renderQuickTheme()}
     <button class="btn" onclick="location.hash='#/block1'">${hasProgress ? "Продолжить" : "Начать"} ${icon("arrow_right","ic-sm")}</button>
   `;
 }
