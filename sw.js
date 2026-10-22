@@ -1,4 +1,4 @@
-const CACHE = "profgid-v2";
+const CACHE = "profgid-v3";
 const ASSETS = [
   "./",
   "./index.html",
