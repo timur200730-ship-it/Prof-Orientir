@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#4f46e5">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="ПрофГид">
+  <title>ПрофГид</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icons/icon.svg">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <h1 id="title">ПрофГид</h1>
+    <button id="installBtn" class="hidden">Установить</button>
+  </header>
+
+  <main id="main"></main>
+
+  <nav class="bottomnav">
+    <a href="#/start" data-tab="start">🏠<span>Старт</span></a>
+    <a href="#/block1" data-tab="block1">🧠<span>Таланты</span></a>
+    <a href="#/block2" data-tab="block2">🌍<span>Профессии</span></a>
+    <a href="#/block3" data-tab="block3">🎯<span>Цель</span></a>
+    <a href="#/profile" data-tab="profile">👤<span>Профиль</span></a>
+  </nav>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
