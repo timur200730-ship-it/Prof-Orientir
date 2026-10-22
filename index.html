@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#4f46e5">
+  <meta name="theme-color" content="#6366f1">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="ПрофГид">
@@ -16,19 +16,28 @@
 <body>
   <header class="topbar">
     <h1 id="title">ПрофГид</h1>
-    <button id="installBtn" class="hidden">Установить</button>
+    <div class="actions">
+      <button id="installBtn" class="hidden">Установить</button>
+      <button class="icon-btn" data-action="open-settings" aria-label="Настройки">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-settings"/></svg>
+      </button>
+    </div>
   </header>
 
   <main id="main"></main>
 
   <nav class="bottomnav">
-    <a href="#/start" data-tab="start">🏠<span>Старт</span></a>
-    <a href="#/block1" data-tab="block1">🧠<span>Таланты</span></a>
-    <a href="#/block2" data-tab="block2">🌍<span>Профессии</span></a>
-    <a href="#/block3" data-tab="block3">🎯<span>Цель</span></a>
-    <a href="#/profile" data-tab="profile">👤<span>Профиль</span></a>
+    <a href="#/start" data-tab="start"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-home"/></svg><span>Старт</span></a>
+    <a href="#/block1" data-tab="block1"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-sparkles"/></svg><span>Таланты</span></a>
+    <a href="#/block2" data-tab="block2"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-compass"/></svg><span>Профессии</span></a>
+    <a href="#/block3" data-tab="block3"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-target"/></svg><span>Цель</span></a>
+    <a href="#/profile" data-tab="profile"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-user"/></svg><span>Профиль</span></a>
   </nav>
 
+  <div class="sheet-backdrop" id="sheetBackdrop" data-action="close-settings"></div>
+  <div class="sheet" id="settingsSheet"></div>
+
+  <script src="icons.js"></script>
   <script src="data.js"></script>
   <script src="app.js"></script>
 </body>
