@@ -15,14 +15,21 @@
 </head>
 <body>
   <header class="topbar">
-    <h1 id="title">ПрофГид</h1>
-    <div class="actions">
-      <button id="installBtn" class="hidden">Установить</button>
-      <button class="icon-btn" data-action="open-settings" aria-label="Настройки">
-        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-settings"/></svg>
-      </button>
-    </div>
-  </header>
+  <h1 id="title">ПрофГид</h1>
+  <div class="actions">
+    <button id="installBtn" class="hidden">Установить</button>
+    <button class="icon-btn icon-btn-theme" data-action="open-settings" aria-label="Сменить тему">
+      <!-- inline SVG — отрисуется всегда, даже если спрайт не загрузился -->
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="22" height="22">
+        <circle cx="13.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/>
+        <circle cx="17.5" cy="10.5" r="1.5" fill="currentColor" stroke="none"/>
+        <circle cx="8.5" cy="7.5" r="1.5" fill="currentColor" stroke="none"/>
+        <circle cx="6.5" cy="12.5" r="1.5" fill="currentColor" stroke="none"/>
+        <path d="M12 2a10 10 0 0 0 0 20c1.5 0 2-.8 2-1.5 0-.9-.7-1.4-.7-2.3 0-1 .8-1.7 1.8-1.7h1.7a4.2 4.2 0 0 0 4.2-4.2C21 6.7 17.1 2 12 2z"/>
+      </svg>
+    </button>
+  </div>
+</header>
 
   <main id="main"></main>
 
