@@ -1,0 +1,15 @@
+{
+  "name": "ПрофГид — профориентация",
+  "short_name": "ПрофГид",
+  "description": "Личный дневник профориентации: таланты, профессии, цель",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#f7f7fb",
+  "theme_color": "#4f46e5",
+  "lang": "ru",
+  "icons": [
+    { "src": "icons/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}
