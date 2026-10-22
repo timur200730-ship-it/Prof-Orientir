@@ -617,3 +617,63 @@ button.btn.danger {
 .row { display: flex; gap: 8px; }
 .row > * { flex: 1; }
 .text-center { text-align: center; }
+/* === Кнопка темы в топбаре — заметная === */
+.icon-btn-theme {
+  background: linear-gradient(135deg, var(--grad-from), var(--grad-to));
+  color: #fff;
+  border: none;
+  box-shadow: 0 4px 14px color-mix(in srgb, var(--primary) 35%, transparent);
+}
+.icon-btn-theme:hover { background: linear-gradient(135deg, var(--grad-from), var(--grad-to)); }
+.icon-btn-theme:active { transform: scale(0.92); }
+
+/* === Быстрый переключатель темы на главной === */
+.quick-themes {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 8px;
+  margin-top: 10px;
+}
+.quick-theme {
+  aspect-ratio: 1;
+  border-radius: 12px;
+  border: 2px solid transparent;
+  cursor: pointer;
+  position: relative;
+  transition: transform .15s ease, border-color .15s ease;
+}
+.quick-theme:active { transform: scale(0.9); }
+.quick-theme.selected {
+  border-color: var(--text);
+  transform: scale(1.08);
+}
+.quick-theme.selected::after {
+  content: '✓';
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  color: #fff; font-size: 14px; font-weight: 800;
+  text-shadow: 0 1px 3px rgba(0,0,0,.4);
+}
+
+/* Мини-переключатель светлая/тёмная/авто */
+.quick-mode {
+  display: flex; gap: 6px; margin-top: 10px;
+  padding: 4px; background: var(--surface-2); border-radius: 12px;
+}
+.quick-mode button {
+  flex: 1;
+  padding: 8px 4px;
+  border: none; background: transparent;
+  color: var(--muted);
+  border-radius: 8px;
+  font-size: 12px; font-weight: 600;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center; gap: 4px;
+  transition: all .2s ease;
+}
+.quick-mode button.active {
+  background: var(--surface);
+  color: var(--text);
+  box-shadow: var(--shadow-sm);
+}
+.quick-mode button svg { width: 16px; height: 16px; }
